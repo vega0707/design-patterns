@@ -1,4 +1,4 @@
-package io.vega.decorator;
+package io.vega.Proxy;
 
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
@@ -15,11 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ClearBeforeUploader implements Uploader {
 
-    public ClearBeforeUploader(Uploader uploader) {
-        this.uploader = uploader;
-    }
-
-    private Uploader uploader;
+    private Uploader commonUploader = new CommonUploader();
 
     @Override
     public void upload(List<Integer> data) {
@@ -29,6 +25,7 @@ public class ClearBeforeUploader implements Uploader {
 
     @Override
     public void upload(Integer datum) {
-        uploader.upload(datum);
+        commonUploader.upload(datum);
     }
+
 }

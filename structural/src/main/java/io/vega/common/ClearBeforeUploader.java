@@ -1,4 +1,4 @@
-package io.vega.decorator;
+package io.vega.common;
 
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
@@ -15,12 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ClearBeforeUploader implements Uploader {
 
-    public ClearBeforeUploader(Uploader uploader) {
-        this.uploader = uploader;
-    }
-
-    private Uploader uploader;
-
     @Override
     public void upload(List<Integer> data) {
         Main.TABLE.clear();
@@ -29,6 +23,7 @@ public class ClearBeforeUploader implements Uploader {
 
     @Override
     public void upload(Integer datum) {
-        uploader.upload(datum);
+        Main.TABLE.add(datum);
     }
+
 }

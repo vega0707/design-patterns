@@ -1,4 +1,4 @@
-package io.vega.decorator;
+package io.vega.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,14 +18,11 @@ public class Main {
     public final static List<Integer> TABLE = new ArrayList<>();
 
     public static void main(String[] args) {
-        CommonUploader commonUploader = new CommonUploader();
-        commonUploader.upload(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        new CommonUploader().upload(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
         System.out.println(TABLE);
-        SingleUploader singleUploader = new SingleUploader(commonUploader);
-        singleUploader.upload(Arrays.asList(6, 6, 7, 10));
+        new SingleUploader().upload(Arrays.asList(6, 6, 7, 10));
         System.out.println(TABLE);
-        ClearBeforeUploader clearBeforeUploader = new ClearBeforeUploader(singleUploader);
-        clearBeforeUploader.upload(Arrays.asList(6, 6, 7, 10));
+        new ClearBeforeUploader().upload(Arrays.asList(6, 6, 7, 10));
         System.out.println(TABLE);
     }
 

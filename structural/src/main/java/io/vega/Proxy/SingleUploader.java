@@ -1,12 +1,9 @@
-package io.vega.decorator;
+package io.vega.Proxy;
 
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Vega
@@ -18,11 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class SingleUploader implements Uploader {
 
-    public SingleUploader(Uploader uploader) {
-        this.uploader = uploader;
-    }
-
-    private Uploader uploader;
+    private Uploader commonUploader = new CommonUploader();
 
     @Override
     public void upload(List<Integer> data) {
@@ -32,7 +25,8 @@ public class SingleUploader implements Uploader {
     @Override
     public void upload(Integer datum) {
         if (!Main.TABLE.contains(datum)) {
-            uploader.upload(datum);
+            commonUploader.upload(datum);
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package io.vega.decorator;
+package io.vega.Proxy;
 
 import io.vega.Uploader;
 
@@ -22,4 +22,5 @@ public class CommonUploader implements Uploader {
     public void upload(Integer datum) {
         Main.TABLE.add(datum);
     }
+
 }
