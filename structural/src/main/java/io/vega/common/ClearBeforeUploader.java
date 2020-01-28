@@ -1,5 +1,6 @@
 package io.vega.common;
 
+import io.vega.DataBase;
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
 
@@ -17,13 +18,7 @@ public class ClearBeforeUploader implements Uploader {
 
     @Override
     public void upload(List<Integer> data) {
-        Main.TABLE.clear();
+        DataBase.TABLE.clear();
         data.forEach(this::upload);
     }
-
-    @Override
-    public void upload(Integer datum) {
-        Main.TABLE.add(datum);
-    }
-
 }

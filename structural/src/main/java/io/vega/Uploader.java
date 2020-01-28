@@ -1,5 +1,7 @@
 package io.vega;
 
+import io.vega.common.Main;
+
 import java.util.List;
 
 /**
@@ -14,7 +16,9 @@ public interface Uploader {
      * 上传单个数据
      * @param datum 需要上传的数据
      */
-    void upload(Integer datum);
+    default void upload(Integer datum){
+        DataBase.TABLE.add(datum);
+    }
 
     /**
      * 上传通用接口

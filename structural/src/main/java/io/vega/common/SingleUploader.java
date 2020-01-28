@@ -1,5 +1,6 @@
 package io.vega.common;
 
+import io.vega.DataBase;
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
 
@@ -22,9 +23,8 @@ public class SingleUploader implements Uploader {
 
     @Override
     public void upload(Integer datum) {
-        if (!Main.TABLE.contains(datum)) {
-            Main.TABLE.add(datum);
+        if (!DataBase.TABLE.contains(datum)) {
+            this.upload(datum);
         }
     }
-
 }

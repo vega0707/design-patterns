@@ -18,9 +18,4 @@ public class CommonUploader implements Uploader {
         data.forEach(this::upload);
     }
 
-    @Override
-    public void upload(Integer datum) {
-        Main.TABLE.add(datum);
-    }
-
 }

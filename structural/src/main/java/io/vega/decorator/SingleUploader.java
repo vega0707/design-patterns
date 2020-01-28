@@ -1,5 +1,6 @@
 package io.vega.decorator;
 
+import io.vega.DataBase;
 import io.vega.Uploader;
 import lombok.NoArgsConstructor;
 
@@ -31,7 +32,7 @@ public class SingleUploader implements Uploader {
 
     @Override
     public void upload(Integer datum) {
-        if (!Main.TABLE.contains(datum)) {
+        if (!DataBase.TABLE.contains(datum)) {
             uploader.upload(datum);
         }
     }
